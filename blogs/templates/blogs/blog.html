@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+    <b>{{ object.title }}</b><br>
+{% endblock %}
+
+{%block content%}
+    <div>{{ object.description }}</div>
+    {% if object.posts.all %}
+        <h4>Посты</h4>
+        {% for post in object.posts.all %}
+            <div>
+                <a href="{% url "blogs:onepost" pk=post.id %}">{{ post.title }}</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url "blogs:allblogs" %}"> К списку блогов </a>
+    <a href="{% url "home" %}"> Главная </a>
+{% endblock %}

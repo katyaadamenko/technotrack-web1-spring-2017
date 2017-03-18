@@ -1,0 +1,13 @@
+{% extends "core/base.html" %}
+
+{% block title %}Посты{% endblock %}
+
+{% block content %}
+    {% for post in object_list %}
+        <div>
+            <div>{{ post.title }}</div>
+        </div>
+    {% endfor %}
+    <a href="{% url "blogs:allblogs" %}"> К списку блогов </a>
+    <a href="{% url "home" %}"> Главная </a>
+{% endblock %}

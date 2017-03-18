@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+    <b>{{ object.title }}</b><br>
+{% endblock %}
+
+{%block content%}
+    <a >{{ object.text }}</a>
+    {% if object.comments.all %}
+        <h4>Комментарии</h4>
+        {% for comment in object.comments.all|slice:":5" %}
+            <div>
+                <div>{{ comment.text }}</div>
+                <div>{{ comment.created_at }}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
